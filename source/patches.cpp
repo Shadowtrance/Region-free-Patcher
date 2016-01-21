@@ -150,8 +150,14 @@ int patchNimAutoUpdate()
 
 int patchRegionFree()
 {
-    patchMenu();
-    patchNs();
+	int menuRet = patchMenu();
+	if (menuRet != 0)
+		return 1;
+
+    int nsRet = patchNs();
+	if (nsRet != 0)
+		return 2;
+
     return 0;
 }
 
@@ -165,9 +171,8 @@ int patchMenu()
     // 9.0.0 Address: 0x00101B8C;
     static unsigned char originalcode[] = { 0x00, 0x00, 0x55, 0xE3, 0x01, 0x10, 0xA0, 0xE3, 0x11, 0x00, 0xA0, 0xE1, 0x03, 0x00, 0x00, 0x0A };  
     static char patchcode[] = { 0x01, 0x00, 0xA0, 0xE3, 0x70, 0x80, 0xBD, 0xE8 };
-    findAndPatchCode(titleId, 4, startAddress, 0x00100000, originalcode, patchcode, sizeof(patchcode));
 
-    return 0;
+    return findAndPatchCode(titleId, 4, startAddress, 0x00100000, originalcode, patchcode, sizeof(patchcode));
 }
 
 int patchNs()
@@ -180,9 +185,7 @@ int patchNs()
     // 9.0.0 Addresses: 0x00102acc, 0x001894f4;
     static char patchcode[] = { 0x0B, 0x18, 0x21, 0xC8 };  
     static unsigned char originalcode[] = { 0x0C, 0x18, 0xE1, 0xD8 };
-    findAndReplace(titleId, 2, startAddress, 0x00010000, 2, originalcode, sizeof(originalcode), patchcode, sizeof(patchcode));
-
-    return 0;
+    return findAndReplace(titleId, 2, startAddress, 0x00010000, 2, originalcode, sizeof(originalcode), patchcode, sizeof(patchcode));
 }
 /*
 Todo: find offsets
