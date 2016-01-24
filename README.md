@@ -16,7 +16,7 @@ If it failed, you might need to reboot your 3DS before trying again, but the suc
 ### Credits
 * base application: Free Multi Patcher by hartie95 (https://github.com/hartmannaf/Free-multi-Patcher/), which in turn was based off YGW Eshop Spoofer by felipejfc (https://github.com/felipejfc/ygw-eshop-spoofer)
 * region free:		[rxtools](https://github.com/roxas75/rxTools) by [roxas](https://github.com/roxas75/rxTools)
-* Placeholder Earth icon from http://www.elegantthemes.com/
+* Louch 雪 Daishiteru for the new banner and icon.
 
 ###License
 Do whatever the heck you want with this code, but if the original code has a license differing from this one, then please respect the original authors' wishes.
